@@ -1,4 +1,4 @@
-import LoginUser from "../../application/use-cases/LoginUser.js";
+import LoginUser from "../../application/use-cases/user/LoginUser.js";
 import UserRepository from "../../infrastructure/repositories/UserRepositoryMongo.js";
 import PasswordEncrypter from "../../infrastructure/security/password_encrypter.js";
 import TokenGenerator from "../../infrastructure/security/token_generator.js";

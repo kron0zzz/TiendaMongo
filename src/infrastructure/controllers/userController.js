@@ -1,8 +1,8 @@
-import CreateUser from "../../application/use-cases/CreateUser.js";
-import GetUsers from "../../application/use-cases/GetUsers.js";
-import GetUserById from "../../application/use-cases/GetUserById.js";
-import UpdateUser from "../../application/use-cases/UpdateUser.js";
-import DeleteUser from "../../application/use-cases/DeleteUser.js";
+import CreateUser from "../../application/use-cases/user/CreateUser.js";
+import GetUsers from "../../application/use-cases/user/GetUsers.js";
+import GetUserById from "../../application/use-cases/user/GetUserById.js";
+import UpdateUser from "../../application/use-cases/user/UpdateUser.js";
+import DeleteUser from "../../application/use-cases/user/DeleteUser.js";
 import PasswordEncrypter from "../../infrastructure/security/password_encrypter.js"
 import UserRepositoryMongo from "../repositories/UserRepositoryMongo.js";
 
