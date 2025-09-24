@@ -1,15 +1,4 @@
-import mongoose from "mongoose";
-
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password:String,
-  rol: String,
-  createdAt: String,
-});
-
-const UserModel = mongoose.model("User", UserSchema);
-
+import {UserModel} from "../db/UserModel";
 class UserRepositoryMongo {
 
   async create(userData) {
