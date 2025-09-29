@@ -5,11 +5,16 @@ import UpdatePedido from "../../application/use-cases/pedido/UpdatePedido.js";
 import DeletePedido from "../../application/use-cases/pedido/DeletePedido.js";
 
 import PedidoRepositoryMongo from "../repositories/PedidoRepositoryMongo.js";
+import ProductRepositoryMongo from "../repositories/ProductRepositoryMongo.js";
 
 const pedidoRepository = new PedidoRepositoryMongo();
+const productRepository = new ProductRepositoryMongo();
+
+
+
 export const createPedido = async (req, res) => {
   try {
-    const createPedido = new CreatePedido(pedidoRepository);
+    const createPedido = new CreatePedido(pedidoRepository, productRepository);
     const pedido = await createPedido.execute(req.body);
     res.status(201).json(pedido);
   } catch (err) {

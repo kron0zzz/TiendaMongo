@@ -22,6 +22,18 @@ class ProductRepositoryMongo {
   async delete(id) {
    return await ProductModel.findByIdAndDelete(id);
   }
+
+
+
+  async updateStock(productId, cantidad) {
+    // cantidad puede ser negativa o positiva
+    return await ProductModel.findByIdAndUpdate(
+      productId,
+      { $inc: { stock: cantidad } }, // $inc suma o resta
+      { new: true }
+    );
+  }
+
   
 }
 
