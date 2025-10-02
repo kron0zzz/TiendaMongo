@@ -12,7 +12,7 @@ import { authMiddleware } from "../../interfaces/middlewares/authMiddleware.js";
 
 const router = Router();
 router.post("/", createUser);
-router.get("/",  getUsers);       //poner el otro argumento de authMiddleware
+router.get("/",authMiddleware,  getUsers);       //poner el otro argumento de authMiddleware
 router.get("/:id", getUserById);
 router.put("/:id", authMiddleware, updateUser);
 router.delete("/:id", deleteUser);
