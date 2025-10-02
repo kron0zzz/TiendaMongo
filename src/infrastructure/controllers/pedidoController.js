@@ -3,6 +3,7 @@ import GetPedidos from "../../application/use-cases/pedido/GetPedidos.js";
 import GetPedidoById from "../../application/use-cases/pedido/GetPedidoById.js";
 import UpdatePedido from "../../application/use-cases/pedido/UpdatePedido.js";
 import DeletePedido from "../../application/use-cases/pedido/DeletePedido.js";
+import CancelPedido from "../../application/use-cases/pedido/CancelPedido.js"
 
 import PedidoRepositoryMongo from "../repositories/PedidoRepositoryMongo.js";
 import ProductRepositoryMongo from "../repositories/ProductRepositoryMongo.js";
@@ -69,3 +70,19 @@ export const deletePedido = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 }; 
+
+
+
+export const cancelPedido = async (req, res) => {
+  try {
+    const cancelPedido = new CancelPedido(pedidoRepository, productRepository);
+    const pedidoCancelado = await cancelPedido.execute(req.params.id);
+
+    res.status(200).json({
+      mensaje: "Pedido cancelado con éxito",
+      pedido: pedidoCancelado
+    });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};

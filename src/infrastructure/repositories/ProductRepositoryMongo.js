@@ -25,14 +25,16 @@ class ProductRepositoryMongo {
 
 
 
-  async updateStock(productId, cantidad) {
+  async updateStock(id, cantidad) {
     // cantidad puede ser negativa o positiva
     return await ProductModel.findByIdAndUpdate(
-      productId,
+      id,
       { $inc: { stock: cantidad } }, // $inc suma o resta
       { new: true }
     );
   }
+
+
 
   
 }
